@@ -35,9 +35,29 @@ describe("List", ()=>{
         const text = $el.text()
         actualFruits.push(text.trim())
       }).then(()=>{
-        console.log(actualFruits)
         expect(expectedFruits).to.deep.equal(actualFruits)
       })
+    })
+  })
+
+  it("should contain valid items 2", ()=>{
+    const expectedFruits = [
+      "Lemons",
+      "Raspberries",
+      "Strawberries",
+      "Blackberries",
+      "Kiwis",
+      "Grapefruit",
+      "Avocado",
+      "Watermelon",
+      "Cantaloupe",
+      "Oranges",
+      "Peaches"
+    ]
+
+    cy.get("@container").find("nb-list-item").should("have.length", 11).then(($elements)=>{
+      const actualFruits = $elements.map((_, el) => Cypress.$(el).text().trim()).get()
+      expect(expectedFruits).to.deep.equal(actualFruits)
     })
   })
 })

@@ -66,5 +66,18 @@ describe("Forms", ()=>{
   })
 })
 
-// cy.get("@container").find('input[type="text"]').not('.hidden')
+describe.only("Type", ()=>{
+  it("should type into form", ()=>{
+    cy.visit("/pages/forms/inputs")
+
+    cy.get("nb-card").find('input.status-info').should("be.visible").and("be.enabled")
+
+    cy.get("nb-card").find('input.status-info').type("Hello World!!!", {delay: 100})
+    cy.get("nb-card").find('input.status-info').type("Hello World!!!{alt}+{enter}", {delay: 100})
+
+    const fruits = ["apple", "banana"]
+
+    cy.wrap(fruits).should("have.length", 2)
+  })
+})
 
