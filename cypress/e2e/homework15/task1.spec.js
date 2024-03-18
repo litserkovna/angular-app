@@ -26,12 +26,12 @@ describe('Table Test', () => {
         smartTablePage.ageField.type(userData.age).wait(1000);
         smartTablePage.saveButton.click();
 
-        smartTablePage.verifyId.should('contain.text', userData.id);
-        smartTablePage.verifyFirstName.should('contain.text', userData.firstName);
-        smartTablePage.verifyLastName.should('contain.text', userData.lastName);
-        smartTablePage.verifyUsername.should('contain.text', userData.username);
-        smartTablePage.verifyEmail.should('contain.text', userData.email);
-        smartTablePage.verifyAge.should('contain.text', userData.age);
+        smartTablePage.id.should('contain.text', userData.id);
+        smartTablePage.firstName.should('contain.text', userData.firstName);
+        smartTablePage.lastName.should('contain.text', userData.lastName);
+        smartTablePage.username.should('contain.text', userData.username);
+        smartTablePage.email.should('contain.text', userData.email);
+        smartTablePage.age.should('contain.text', userData.age);
     });
 
     it('Should edit a user', () => {
@@ -53,10 +53,10 @@ describe('Table Test', () => {
         smartTablePage.ageField.clear().type(updatedUserData.age).wait(1000);
         smartTablePage.saveUpdated.click();
 
-        smartTablePage.verifyFirstName.should('contain.text', updatedUserData.firstName);
-        smartTablePage.verifyLastName.should('contain.text', updatedUserData.lastName);
-        smartTablePage.verifyUsername.should('contain.text', updatedUserData.username);
-        smartTablePage.verifyEmail.should('contain.text', updatedUserData.email);
-        smartTablePage.verifyAge.should('contain.text', updatedUserData.age);
+        smartTablePage.firstName.should('contain.text', updatedUserData.firstName);
+        smartTablePage.lastName.should('contain.text', updatedUserData.lastName);
+        smartTablePage.username.should('contain.text', updatedUserData.username);
+        smartTablePage.email.should('contain.text', updatedUserData.email);
+        smartTablePage.age.should('contain.text', updatedUserData.age);
     });
 });

@@ -1,5 +1,6 @@
 export default class SmartTablePage {
     _url = "/pages/tables/smart-table";
+    rowNumber = 0;
 
     openPage() {
         cy.visit(this._url);
@@ -37,27 +38,27 @@ export default class SmartTablePage {
         return cy.get('a.ng2-smart-action.ng2-smart-action-add-create');
     }
 
-    get verifyId() {
+    get id() {
         return cy.get('div[class="ng-star-inserted"]').eq(0);
     }
 
-    get verifyFirstName() {
+    get firstName() {
         return cy.get('div[class="ng-star-inserted"]').eq(1);
     }
 
-    get verifyLastName() {
+    get lastName() {
         return cy.get('div[class="ng-star-inserted"]').eq(2);
     }
 
-    get verifyUsername() {
+    get username() {
         return cy.get('div[class="ng-star-inserted"]').eq(3);
     }
 
-    get verifyEmail() {
+    get email() {
         return cy.get('div[class="ng-star-inserted"]').eq(4);
     }
 
-    get verifyAge() {
+    get age() {
         return cy.get('div[class="ng-star-inserted"]').eq(5);
     }
 
@@ -66,6 +67,7 @@ export default class SmartTablePage {
     }
 
     get updateButton() {
-        return cy.get('i.nb-edit').eq(0);
+        return cy.get('i.nb-edit').eq(this.rowNumber);
     }
 }
+
