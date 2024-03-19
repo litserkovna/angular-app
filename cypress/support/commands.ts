@@ -45,3 +45,13 @@ Cypress.Commands.add('fillForm', ({name, email, rememberMe = false}: {name: stri
 Cypress.Commands.add('getById', function (id: string) {
   return cy.get(`#${id}`);
 });
+
+Cypress.Commands.overwrite('visit', (originalVisit, url) => {
+  originalVisit({
+    url,
+    auth: {
+      username: 'guest',
+      password: 'welcome2qauto',
+    },
+  });
+});
