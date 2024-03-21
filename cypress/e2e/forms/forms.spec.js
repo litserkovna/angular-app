@@ -5,7 +5,7 @@ describe("Forms", ()=>{
     // cy.get("nb-card.inline-form-card").as("container")
   })
 
-  it("should fill form 1", ()=>{
+  it.only("should fill form 1", ()=>{
     const containerSelector = "nb-card.inline-form-card"
 
     cy.get(`${containerSelector} input[type="text"]`).first().type("John Doe")

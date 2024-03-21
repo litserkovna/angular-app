@@ -1,9 +1,14 @@
 import { defineConfig } from 'cypress';
-import {addMatchImageSnapshotPlugin} from '@simonsmith/cypress-image-snapshot/plugin'
 
 export default defineConfig({
+  reporter: 'dot',
+  reporterOptions: {
+    reporterDefaultOutput: false,
+  },
+  env: {
+    // api_url : 'https://jsonplaceholder.typicode.com/',
+  },
   e2e: {
-    projectId: 'ysibnm',
     baseUrl: 'http://localhost:4200',
     specPattern: 'cypress/e2e/**/*.{spec,test}.{js,jsx}',
     viewportWidth: 1920,
@@ -12,8 +17,10 @@ export default defineConfig({
     retries: { runMode: 1, openMode: 1 },
     scrollBehavior: 'center',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-      addMatchImageSnapshotPlugin(on);
+      on('before:browser:launch', (browser = {} as any, launchOptions) => {
+        launchOptions.args.push('--auto-open-devtools-for-tabs');
+        return launchOptions;
+      });
     },
   },
 });

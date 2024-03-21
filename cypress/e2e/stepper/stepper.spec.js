@@ -3,8 +3,8 @@
 describe("Stepper", ()=>{
     it("should work" ,{
       retries: {
-        runMode: 2,
-        openMode: 1,
+        runMode: 0,
+        openMode: 0,
       },
     },()=>{
       const containerSelector = 'nb-stepper[orientation="horizontal"]'
@@ -18,6 +18,11 @@ describe("Stepper", ()=>{
 
       cy.get(`${containerSelector} button`).contains("prev").should("be.enabled")
       cy.get(`${containerSelector} button`).contains("next").click()
+
+      // cy.pause()
+      // debugger
+
+      // cy.get(`${containerSelector} h3`).debug().should("have.text", "Step content #4")
       cy.get(`${containerSelector} h3`).should("have.text", "Step content #3")
 
       cy.get(`${containerSelector} button`).contains("prev").should("be.enabled")
