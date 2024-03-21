@@ -1,9 +1,7 @@
 import { defineConfig } from 'cypress';
-import {addMatchImageSnapshotPlugin} from '@simonsmith/cypress-image-snapshot/plugin'
 
 export default defineConfig({
   e2e: {
-    projectId: 'ysibnm',
     baseUrl: 'http://localhost:4200',
     specPattern: 'cypress/e2e/**/*.{spec,test}.{js,jsx}',
     viewportWidth: 1920,
@@ -13,7 +11,6 @@ export default defineConfig({
     scrollBehavior: 'center',
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      addMatchImageSnapshotPlugin(on);
     },
   },
 });
