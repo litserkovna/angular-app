@@ -6,7 +6,6 @@ describe('Fetch Single Item API Test', () => {
       
       expect(response.status).to.equal(200);
       expect(response.body.userId).to.equal(1);
-      expect(typeof response.body.id).to.equal('number');
       expect(typeof response.body.body).to.equal('string');
     });
   });

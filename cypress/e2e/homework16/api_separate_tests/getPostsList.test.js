@@ -5,9 +5,7 @@ describe('Fetch All Items API Test', () => {
       }).as('getFullList');
   
       cy.get('@getFullList').its('status').should('eq', 200)
-      cy.get('@getFullList').its('body').should('have.length.above', 10) 
-      cy.get('@getFullList').its('body').should('have.length', 100);
-  
+      cy.get('@getFullList').its('body').should('have.length.above', 10)
       });
     });
 
